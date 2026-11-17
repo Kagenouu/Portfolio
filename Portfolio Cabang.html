@@ -1,0 +1,310 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Juan Dela Cruz Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<!-- SAMPLE CONTENT: replace the name, school, projects, links and email with your own. -->
+<style>
+/* Layout: fixed identity column on the left (name, status, nav, contact), scrolling content on the right; stacks on phones. */
+:root {
+  --bg: #F2F4F5;
+  --surface: #FFFFFF;
+  --fg: #12171C;
+  --muted: #56606B;
+  --line: #D5DBE0;
+  --accent: #0A6C8F;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #DCEEF4;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1217; --surface: #151C23; --fg: #E7ECF0; --muted: #98A3AE;
+    --line: #28323B; --accent: #5CC3E3; --accent-ink: #06222C; --accent-soft: #14303B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1217; --surface: #151C23; --fg: #E7ECF0; --muted: #98A3AE;
+  --line: #28323B; --accent: #5CC3E3; --accent-ink: #06222C; --accent-soft: #14303B;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-block: 32px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+}
+@media (min-width: 900px) {
+  .shell { grid-template-columns: 290px minmax(0, 1fr); gap: 64px; }
+  .side { position: sticky; top: 32px; align-self: start; }
+}
+
+/* Identity column */
+.side { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.path { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.path b { color: var(--accent); font-weight: 500; }
+h1 { font-size: clamp(2.4rem, 6vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; margin-top: 10px; }
+.role { margin-top: 10px; color: var(--muted); }
+.status {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+  font-family: var(--font-mono); font-size: 12.5px;
+  background: var(--accent-soft); color: var(--fg);
+  padding: 6px 12px; border-radius: 999px;
+}
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+nav ul { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+@media (min-width: 900px) { nav ul { flex-direction: column; gap: 6px; } }
+nav a {
+  font-family: var(--font-mono); font-size: 14px; color: var(--muted);
+  text-decoration: none; padding: 2px 0; display: inline-block;
+}
+nav a:hover { color: var(--accent); }
+.contact { border-top: 1px solid var(--line); padding-top: 20px; display: grid; gap: 12px; font-size: 14.5px; }
+.contact dt { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.contact dd { margin: 2px 0 0; overflow-wrap: anywhere; }
+.copy {
+  font: 500 12px var(--font-mono); margin-left: 8px; cursor: pointer;
+  background: transparent; color: var(--accent); border: 1px solid var(--line);
+  border-radius: 6px; padding: 2px 8px;
+}
+.copy:hover { border-color: var(--accent); }
+
+/* Content column */
+main { display: flex; flex-direction: column; gap: 56px; min-width: 0; }
+section { scroll-margin-top: 24px; }
+h2 {
+  font-size: 0.8rem; font-family: var(--font-mono); font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted);
+  display: flex; align-items: center; gap: 14px; margin-bottom: 22px;
+}
+h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.lede { font-size: clamp(1.15rem, 2.2vw, 1.35rem); line-height: 1.55; max-width: 62ch; text-wrap: pretty; }
+.lede + .lede { margin-top: 14px; color: var(--muted); font-size: 1.02rem; }
+
+/* Key skills: category on the left, items on the right */
+.skills { display: grid; gap: 0; margin: 0; }
+.skill-row {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px;
+  padding: 16px 0; border-bottom: 1px solid var(--line);
+}
+.skill-row:first-child { padding-top: 0; }
+@media (min-width: 640px) { .skill-row { grid-template-columns: 200px minmax(0, 1fr); gap: 24px; } }
+.skills dt { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+.skills dd { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-family: var(--font-mono); font-size: 13px;
+  background: var(--surface); border: 1px solid var(--line);
+  padding: 3px 10px; border-radius: 6px;
+}
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 16px; }
+.project {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
+}
+.project .tag { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+.project h3 { font-size: 1.25rem; }
+.project p { color: var(--muted); font-size: 0.97rem; }
+.project .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+.project .stack span { font-family: var(--font-mono); font-size: 12px; background: var(--accent-soft); padding: 2px 8px; border-radius: 5px; }
+.project .links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; font-weight: 500; }
+.project.featured { grid-column: 1 / -1; }
+@media (min-width: 640px) {
+  .project.featured { padding: 28px; }
+  .project.featured p { max-width: 62ch; }
+}
+
+/* Education and experience */
+.log { display: grid; gap: 0; }
+.log li {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px;
+  padding: 16px 0; border-bottom: 1px solid var(--line);
+}
+.log li:first-child { padding-top: 0; }
+@media (min-width: 640px) { .log li { grid-template-columns: 160px minmax(0, 1fr); gap: 24px; } }
+.log time { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 3px; }
+.log strong { font-family: var(--font-display); font-size: 1.05rem; }
+.log p { color: var(--muted); font-size: 0.97rem; margin-top: 2px; }
+
+footer { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 20px; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<div class="shell">
+  <aside class="side">
+    <div>
+      <p class="path"><b>~/</b>portfolio</p>
+      <h1>Hienz Axel Cabang</h1>
+      <p class="role">BS Information Technology, 4th year. Web and systems developer.</p>
+      <p class="status">Open to OJT and entry-level roles</p>
+    </div>
+
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#skills">Key skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </nav>
+
+    <dl class="contact">
+      <div>
+        <dt>Email</dt>
+        <dd><span id="email-text">havcabang@gmail.com</span><button class="copy" id="copy-email" type="button">Copy</button></dd>
+      </div>
+      <div>
+        <dt>GitHub</dt>
+        <dd><a href="https://github.com/Kagenouu" rel="noopener">github.com/Kagenouuz</a></dd>
+      </div>
+      <div>
+        <dt>LinkedIn</dt>
+        <dd><a href="https://www.linkedin.com/in/axel-cabang-358651450/" rel="noopener">linkedin.com/in/axel-cabang-358651450</a></dd>
+      </div>
+    </dl>
+  </aside>
+
+  <main>
+    <section id="about">
+      <h2>About me</h2>
+      <p class="lede">A fourth-year Information Technology student with knowledge of web development, programming, database management, and computer troubleshooting. Experienced in developing academic projects, designing user-friendly websites, and applying technical skills to solve basic computer-related problems. Eager to gain hands-on experience, learn new technologies, and contribute to a team in a professional IT environment.</p>
+      <p class="lede">My capstone is a gym management system for a Level-Up Fitness  Gym. It taught me to work with real users, write requirements, test properly and explain technical choices in plain language. I am looking for an internship or junior role in web development, systems support or QA.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Key skills</h2>
+      <dl class="skills">
+        <div class="skill-row">
+          <dt>Web development</dt>
+          <dd><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">Laravel</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Programming</dt>
+          <dd><span class="chip">Java</span><span class="chip">Python</span><span class="chip">C#</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Databases</dt>
+          <dd><span class="chip">MySQL</span><span class="chip">ERD design</span><span class="chip">SQL queries</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Networking and systems</dt>
+          <dd><span class="chip">Cisco Packet Tracer</span><span class="chip">TCP/IP and subnetting</span><span class="chip">Linux basics</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Tools and design</dt>
+          <dd><span class="chip">Git and GitHub</span><span class="chip">Figma</span><span class="chip">VS Code</span><span class="chip">Postman</span></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="project featured">
+          <span class="tag">Capstone</span>
+          <h3>A Customer Information System with Facial Recognition for
+Level-Up Fitness Gym</h3>
+          <p>A web-based customer information system with facial recognition for Level-Up Fitness Gym. It automates member check-ins, attendance, and payment tracking, replacing the gym’s paper-based records..</p>
+          <div class="stack"><span>JavaScript</span><span>Python</span><span>HTML</span><span>CSS</span></div>
+          <div class="links"><a href="https://github.com/juandelacruz/barangay-docs" rel="noopener">Place Holder</a>
+
+        <article class="project">
+          <span class="tag">Business system</span>
+          <h3>Sari-sari Store Inventory and POS</h3>
+          <p>Tracks stock, daily sales and utang records for a neighborhood store. Low-stock alerts and a daily sales summary.</p>
+          <div class="stack"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
+          <div class="links"><a href="https://github.com/juandelacruz/store-pos" rel="noopener">PlaceHolder</a></div>
+        </article>
+
+        <article class="project">
+          <span class="tag">Mobile app</span>
+          <h3>Campus Announcements</h3>
+          <p>Push-style announcement feed for students, with filters by department and a simple admin panel for posting.</p>
+          <div class="stack"><span>Flutter</span><span>Firebase</span></div>
+          <div class="links"><a href="https://github.com/juandelacruz/campus-news" rel="noopener">PlaceHolder</a></div>
+        </article>
+
+        <article class="project">
+          <span class="tag">Networking</span>
+          <h3>Small Office Network Design</h3>
+          <p>Designed and simulated a 30-user office network with VLANs, DHCP, inter-VLAN routing and basic access lists.</p>
+          <div class="stack"><span>Cisco Packet Tracer</span><span>VLAN</span><span>DHCP</span></div>
+          <div class="links"><a href="https://github.com/juandelacruz/campus-news" rel="noopener">PlaceHolder</a></div>
+        </article>
+
+        <article class="project">
+          <span class="tag">Web design</span>
+          <h3>Student Org Website</h3>
+          <p>Responsive site for the IT student organization with an events calendar, officer profiles and a member sign-up form.</p>
+          <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Figma</span></div>
+          <div class="links"><a href="https://github.com/juandelacruz/org-site" rel="noopener">PlaceHolder</a>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education and experience</h2>
+      <ul class="log">
+        <li>
+          <time>2023 to 2027</time>
+          <div><strong>BS Information Technology</strong><p>STI College Santa Rosa. Expected graduation 2027. Focus on web and mobile development and networking.</p></div>
+        </li>
+        <li>
+          <time>2026</time>
+          <div><strong>Capstone project Mobile App Developer and Research Documentation</strong><p>Led a team of four through requirements, design, development, user testing and the final defense.</p></div>
+        </li>
+       
+    <footer>Hienz Axel Cabang, 2026. Built by hand with HTML and CSS.</footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById("copy-email");
+  var txt = document.getElementById("email-text");
+  if (!btn || !txt) return;
+  btn.addEventListener("click", function () {
+    var done = function (label) {
+      btn.textContent = label;
+      setTimeout(function () { btn.textContent = "Copy"; }, 1800);
+    };
+    var select = function () {
+      var r = document.createRange();
+      r.selectNodeContents(txt);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      done("Selected");
+    };
+    try {
+      navigator.clipboard.writeText(txt.textContent.trim()).then(function () { done("Copied"); }, select);
+    } catch (e) { select(); }
+  });
+})();
+</script>
+
+</body></html>
